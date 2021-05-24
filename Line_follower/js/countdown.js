@@ -7,6 +7,7 @@ let display = document.getElementById("display")
 display.innerHTML = minute + ':00' + '.00'
 let statSec = 59
 let statMil = 100
+var countdownAudio = new Audio('audio/countdown.mp3'); //untuk audio countdown
 
 function start() {
 	
@@ -40,19 +41,24 @@ function start() {
             clearInterval(timer)
             pause()
         }
-		
-		if (seconds == 183) {
-				modal.style.display = "block";
-				popup()
-				span.onclick = function() {
-					modal.style.display = "none";
-				}
-				window.onclick = function(event) {
-					if (event.target == modal) {
-					modal.style.display = "none";
-					}
-				}
+	//display popup count up in...
+	if (seconds == 185) {
+		modal.style.display = "block";
+			popup()
+		span.onclick = function() {
+			modal.style.display = "none";
 		}
+		window.onclick = function(event) {
+			if (event.target == modal) {
+			modal.style.display = "none";
+			}
+		}
+      	}
+    	//audio beep
+    	if (seconds == 183){
+      		countdownAudio.play();
+     	}
+		
     },10)
 }
 
@@ -80,19 +86,22 @@ function cancel() {
 // POP UP 1-2-3 SAAT COUNTDOWN MENIT KE 3 SEBELUM MULAI COUNTUP
 let countupTimer;
 
+
 function popup() {
-	let timeleft = 2;
-	if (seconds != 2) clearInterval(countupTimer)
+	let timeleft = 3;
+	if (seconds != 3) clearInterval(countupTimer)
 	countupTimer = setInterval(function(){
 			if(timeleft <= 0){
-				document.getElementById("tigadetik").innerHTML = "Countup started";
+				document.getElementById("tigadetik").innerHTML = "Count up started";
 				clearInterval(countupTimer);
-			} else {
+				modal.style.display = "none";
+      } else {
 				document.getElementById("tigadetik").innerHTML = timeleft + " seconds left";
 			}
-			timeleft -= 1;
+			timeleft = timeleft - 1;
 			}, 1000);
 }
+
 // Get the modal
 var modal = document.getElementById("myModal");
 
@@ -120,5 +129,15 @@ window.onclick = function(event) {
   }
 }
 
+// show start both
+function showstartboth() {
+	var x = document.getElementById("startboth");
+    x.style.display = "block";
+}
+// hide start both
+function hidestartboth() {
+	var x = document.getElementById("startboth");
+    x.style.display = "none";
+}
 
 

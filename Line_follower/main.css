@@ -222,3 +222,22 @@ body{
   text-decoration: none;
   cursor: pointer;
 }
+
+/* start both button */
+
+#startboth {
+	display: none;
+	border:none;
+    margin: 0;
+    font-size: 2rem;
+    font-family: Gotham-Medium;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #ff7700;
+}
+
+
+
+
+
