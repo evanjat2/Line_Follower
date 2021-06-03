@@ -7,9 +7,9 @@ let millisecond = 2;
 
 let cron;
 
-document.form_main.start.onclick = () => start2();
+/*document.form_main.start.onclick = () => start2();
 document.form_main.pause.onclick = () => pause();
-document.form_main.reset.onclick = () => reset4();
+document.form_main.reset.onclick = () => reset4();*/
 
 function start2() {
   pause();
@@ -31,7 +31,7 @@ function reset4() {
   document.getElementById('millisecond').innerText = '00';
 }
 
-function timer2() {
+/*function timer2() {
   if ((millisecond += 1) == 100) {
     millisecond = 0;
     second2++;
@@ -49,4 +49,4 @@ function timer2() {
 
 function returnData(input) {
   return input > 9 ? input : `0${input}`
-}
+}*/

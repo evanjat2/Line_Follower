@@ -31,7 +31,7 @@
 
     <section class="countdown">
         <div class="wrapper">
-            <h1 id="display"> 4:00.00</h1>
+            <h1 id="display">4:00</h1>
             <div class="cd-buttons">
                 <button onclick="start()"> Start </button>
                 <button onclick="stop(); showstartboth();"> Stop </button>
@@ -39,25 +39,29 @@
             </div>
         </div>
 	
-	<button id="startboth" onclick="start(); start2();">Start both</button>
+	<button id="startboth" onclick="start(); startTimer();">Start both</button>
 		
         <div class="wrapper">
             <form name="form_main">
                 <div class="countup">
-                    <span id="minute">00</span><span>:</span>
+                    <!--<span id="minute">00</span><span>:</span>
                     <span id="second">00</span><span>.</span>
-                    <span id="millisecond">00</span>
+                    <span id="millisecond">00</span>-->
+					<div class="timer" onclick="startTimer()">
+						<h1>00:00.000</h1>
+					</div>
                 </div>
                 
                 <div class="cd-buttons">
-                    <button name="start" type="button"> Start </button>
-                    <button name="pause" type="button"> Stop </button>
-                    <button name="reset" type="button"> Reset </button>
+                    <button class="startTimer reset" name="start" type="button" onclick="startTimer()"> Start </button>
+                    <button class="pauseTimer reset" name="pause" type="button" onclick="pauseTimer()"> Stop </button>
+                    <button class="resetTimer reset" name="reset" type="button" onclick="resetTimer()"> Reset </button>
                 </div>
             </form>
         </div>
     </section>
     <script src="js/countdown.js"></script>
+	<script src="js/newCountup.js"></script>
     <script src="js/countup.js"></script>
 
     <div class="counter">
