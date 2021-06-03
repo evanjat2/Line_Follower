@@ -4,7 +4,7 @@ let seconds = 239
 let milliseconds = minute * 60 * 100
 let textSec = "00"
 let display = document.getElementById("display")
-display.innerHTML = minute + ':00' + '.00'
+display.innerHTML = minute + ':00' 
 let statSec = 59
 let statMil = 100
 var countdownAudio = new Audio('audio/countdown.mp3'); //untuk audio countdown
@@ -13,7 +13,7 @@ function start() {
 	
     if (seconds != 239) stop()
     timer = setInterval(function() {
-        if (seconds == 180) startTimer()
+        if (seconds == 180) start2()
         milliseconds--; 
         temp3 = milliseconds
         if (statMil != 0) statMil--
@@ -35,11 +35,11 @@ function start() {
         if (statSec < 10) textSec = '0' + statSec
         else textSec = statSec
         
-        display.innerHTML = Math.floor(seconds/60) + ':' + textSec/* + '.' + textMil*/
+        display.innerHTML = Math.floor(seconds/60) + ':' + textSec 
         
         if (milliseconds == 0) {
             clearInterval(timer)
-            pauseTimer()
+            stop()
         }
 	//display popup count up in...
 	if (seconds == 185) {
@@ -63,7 +63,6 @@ function start() {
 }
 
 function stop() {
-    pauseTimer()
     clearInterval(timer)
     seconds = temp
     statSec = temp2
@@ -73,7 +72,7 @@ function stop() {
 
 function cancel() {
     clearInterval(timer)
-    display.innerHTML = minute + ':00' + '.00'
+    display.innerHTML = minute + ':00'
     minute = 4
     seconds = 239
     milliseconds = minute * 60 * 100
