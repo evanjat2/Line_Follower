@@ -13,7 +13,7 @@ function start() {
 	
     if (seconds != 239) stop()
     timer = setInterval(function() {
-        if (seconds == 180) start2()
+        if (seconds == 180) startTimer()
         milliseconds--; 
         temp3 = milliseconds
         if (statMil != 0) statMil--
@@ -35,11 +35,11 @@ function start() {
         if (statSec < 10) textSec = '0' + statSec
         else textSec = statSec
         
-        display.innerHTML = Math.floor(seconds/60) + ':' + textSec + '.' + textMil
+        display.innerHTML = Math.floor(seconds/60) + ':' + textSec/* + '.' + textMil*/
         
         if (milliseconds == 0) {
             clearInterval(timer)
-            pause()
+            pauseTimer()
         }
 	//display popup count up in...
 	if (seconds == 185) {
@@ -63,7 +63,7 @@ function start() {
 }
 
 function stop() {
-    pause()
+    pauseTimer()
     clearInterval(timer)
     seconds = temp
     statSec = temp2
